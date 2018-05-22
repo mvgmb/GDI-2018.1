@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.text.*?>
-<?import javafx.scene.paint.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.image.*?>
-<?import java.lang.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="558.0" prefWidth="659.0" style="-fx-background-color: #2D3447;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.SearchLayoutController">
+<AnchorPane prefHeight="558.0" prefWidth="659.0" style="-fx-background-color: #2D3447;" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.SearchLayoutController">
    <children>
       <HBox layoutX="219.0" layoutY="472.0" prefHeight="25.0" prefWidth="250.0" spacing="15.0">
          <children>
             <TextField prefHeight="25.0" prefWidth="147.0" promptText="Pesquisar por CPF..." text="083.747.884-70" />
-            <Button mnemonicParsing="false" text="Pesquisar" />
+            <Button fx:id="pesquisarBtn" mnemonicParsing="false" onAction="#ProcurarFuncionario" text="Pesquisar" />
          </children>
       </HBox>
       <ImageView fitHeight="200.0" fitWidth="150.0" layoutX="84.0" layoutY="172.0" pickOnBounds="true">
@@ -46,19 +46,19 @@
       </VBox>
       <VBox layoutX="443.0" layoutY="116.0" prefHeight="200.0" prefWidth="175.0" spacing="10.0">
          <children>
-            <Label prefHeight="15.0" prefWidth="174.0" text="nome" textAlignment="RIGHT" textFill="WHITE" textOverrun="CLIP" />
-            <Label text="cpf" textFill="WHITE" />
-            <Label text="Telefone" textFill="WHITE" />
-            <Label text="salario" textFill="WHITE" />
-            <Label text="data de nascimento" textFill="WHITE" />
-            <Label text="cpf do supervisionador" textFill="WHITE" />
-            <Label text="cep" textFill="WHITE" />
-            <Label text="rua" textFill="WHITE" />
-            <Label text="numero" textFill="WHITE" />
-            <Label text="complemento" textFill="WHITE" />
-            <Label text="bairro" textFill="WHITE" />
-            <Label text="estado" textFill="WHITE" />
-            <Label text="pais" textFill="WHITE" />
+            <Label fx:id="nomeLabel" prefHeight="15.0" prefWidth="174.0" text="nome" textAlignment="RIGHT" textFill="WHITE" textOverrun="CLIP" />
+            <Label fx:id="cpfLabel" text="cpf" textFill="WHITE" />
+            <Label fx:id="telefoneLabel" text="Telefone" textFill="WHITE" />
+            <Label fx:id="salarioLabel" text="salario" textFill="WHITE" />
+            <Label fx:id="dataNascimentoLabel" text="data de nascimento" textFill="WHITE" />
+            <Label fx:id="cpfSupervisionadorLabel" text="cpf do supervisionador" textFill="WHITE" />
+            <Label fx:id="cepLabel" text="cep" textFill="WHITE" />
+            <Label fx:id="ruaLabel" text="rua" textFill="WHITE" />
+            <Label fx:id="numeroLabel" text="numero" textFill="WHITE" />
+            <Label fx:id="complementoLabel" text="complemento" textFill="WHITE" />
+            <Label fx:id="bairroLabel" text="bairro" textFill="WHITE" />
+            <Label fx:id="estadoLabel" text="estado" textFill="WHITE" />
+            <Label fx:id="paisLabel" text="pais" textFill="WHITE" />
          </children>
       </VBox>
       <Label layoutX="143.0" layoutY="31.0" text="Funcionários do Escritório" textFill="WHITE">
@@ -69,9 +69,9 @@
       <Label layoutX="147.0" layoutY="386.0" text="3x4" textFill="WHITE" />
       <HBox layoutX="211.0" layoutY="513.0" prefHeight="31.0" prefWidth="266.0" spacing="15.0">
          <children>
-            <Button mnemonicParsing="false" text="Adicionar" />
-            <Button mnemonicParsing="false" text="Modificar" />
-            <Button mnemonicParsing="false" text="Remover" />
+            <Button fx:id="adicionarBtn" mnemonicParsing="false" onAction="#adicionarFuncionario" text="Adicionar" />
+            <Button fx:id="modificarBtn" mnemonicParsing="false" onAction="#modificarFuncionario" text="Modificar" />
+            <Button fx:id="removerBtn" mnemonicParsing="false" onAction="#removerFuncionario" text="Remover" />
          </children>
       </HBox>
    </children>
