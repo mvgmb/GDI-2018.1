@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="558.0" prefWidth="659.0" style="-fx-background-color: #2D3447;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.SearchLayoutController">
+   <children>
+      <HBox layoutX="219.0" layoutY="472.0" prefHeight="25.0" prefWidth="250.0" spacing="15.0">
+         <children>
+            <TextField prefHeight="25.0" prefWidth="147.0" promptText="Pesquisar por CPF..." text="083.747.884-70" />
+            <Button mnemonicParsing="false" text="Pesquisar" />
+         </children>
+      </HBox>
+      <ImageView fitHeight="200.0" fitWidth="150.0" layoutX="84.0" layoutY="172.0" pickOnBounds="true">
+         <viewport>
+            <Rectangle2D height="160.0" width="120.0" />
+         </viewport>
+         <image>
+            <Image url="@../../../../Desktop/download.jpeg" />
+         </image>
+      </ImageView>
+      <VBox alignment="TOP_RIGHT" layoutX="271.0" layoutY="116.0" prefHeight="290.0" prefWidth="168.0" spacing="10.0">
+         <children>
+            <Label text="Nome:" textFill="WHITE" />
+            <Label text="CPF:" textFill="WHITE" />
+            <Label text="Telefone:" textFill="WHITE" />
+            <Label text="Salário:" textFill="WHITE" />
+            <Label text="Data de Nascimento:" textFill="WHITE" />
+            <Label text="CPF do Supervisionador:" textFill="WHITE" />
+            <Label text="CEP:" textFill="WHITE" />
+            <Label text="Rua:" textFill="WHITE" />
+            <Label text="Número:" textFill="WHITE" />
+            <Label text="Complemento:" textFill="WHITE" />
+            <Label text="Bairro:" textFill="WHITE" />
+            <Label text="Estado:" textFill="WHITE" />
+            <Label text="País:" textFill="WHITE" />
+         </children>
+      </VBox>
+      <VBox layoutX="443.0" layoutY="116.0" prefHeight="200.0" prefWidth="175.0" spacing="10.0">
+         <children>
+            <Label prefHeight="15.0" prefWidth="174.0" text="nome" textAlignment="RIGHT" textFill="WHITE" textOverrun="CLIP" />
+            <Label text="cpf" textFill="WHITE" />
+            <Label text="Telefone" textFill="WHITE" />
+            <Label text="salario" textFill="WHITE" />
+            <Label text="data de nascimento" textFill="WHITE" />
+            <Label text="cpf do supervisionador" textFill="WHITE" />
+            <Label text="cep" textFill="WHITE" />
+            <Label text="rua" textFill="WHITE" />
+            <Label text="numero" textFill="WHITE" />
+            <Label text="complemento" textFill="WHITE" />
+            <Label text="bairro" textFill="WHITE" />
+            <Label text="estado" textFill="WHITE" />
+            <Label text="pais" textFill="WHITE" />
+         </children>
+      </VBox>
+      <Label layoutX="143.0" layoutY="31.0" text="Funcionários do Escritório" textFill="WHITE">
+         <font>
+            <Font size="31.0" />
+         </font>
+      </Label>
+      <Label layoutX="147.0" layoutY="386.0" text="3x4" textFill="WHITE" />
+      <HBox layoutX="211.0" layoutY="513.0" prefHeight="31.0" prefWidth="266.0" spacing="15.0">
+         <children>
+            <Button mnemonicParsing="false" text="Adicionar" />
+            <Button mnemonicParsing="false" text="Modificar" />
+            <Button mnemonicParsing="false" text="Remover" />
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

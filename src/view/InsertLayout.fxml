@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="571.0" prefWidth="600.0" style="-fx-background-color: #2D3447;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="165.0" layoutY="27.0" text="Inserir / Modificar" textFill="WHITE">
+         <font>
+            <Font size="31.0" />
+         </font>
+      </Label>
+      <VBox alignment="TOP_RIGHT" layoutX="220.0" layoutY="103.0" prefHeight="397.0" prefWidth="168.0" spacing="16.4">
+         <children>
+            <Label text="Nome:" textFill="WHITE" />
+            <Label text="CPF:" textFill="WHITE" />
+            <Label text="Telefone:" textFill="WHITE" />
+            <Label text="Salário:" textFill="WHITE" />
+            <Label text="Data de Nascimento:" textFill="WHITE" />
+            <Label text="CPF do Supervisionador:" textFill="WHITE" />
+            <Label text="CEP:" textFill="WHITE" />
+            <Label text="Rua:" textFill="WHITE" />
+            <Label text="Número:" textFill="WHITE" />
+            <Label text="Complemento:" textFill="WHITE" />
+            <Label text="Bairro:" textFill="WHITE" />
+            <Label text="Estado:" textFill="WHITE" />
+            <Label text="País:" textFill="WHITE" />
+         </children>
+      </VBox>
+      <ImageView fitHeight="200.0" fitWidth="150.0" layoutX="48.0" layoutY="155.0" pickOnBounds="true">
+         <image>
+            <Image url="@../../../../Desktop/download.jpeg" />
+         </image>
+         <viewport>
+            <Rectangle2D height="160.0" width="120.0" />
+         </viewport>
+      </ImageView>
+      <VBox layoutX="404.0" layoutY="99.0" prefHeight="397.0" prefWidth="150.0" spacing="6.0">
+         <children>
+            <TextField />
+            <TextField />
+            <TextField />
+            <TextField />
+            <TextField />
+            <TextField />
+            <TextField />
+            <TextField />
+            <TextField />
+            <TextField />
+            <TextField />
+            <TextField />
+            <TextField />
+         </children>
+      </VBox>
+      <Button layoutX="72.0" layoutY="376.0" mnemonicParsing="false" text="Escolher foto" />
+      <HBox layoutX="231.0" layoutY="525.0" prefHeight="25.0" prefWidth="138.0" spacing="20.0">
+         <children>
+            <Button mnemonicParsing="false" text="OK" />
+            <Button mnemonicParsing="false" text="Cancelar" />
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>
