@@ -6,20 +6,20 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<?import javafx.scene.layout.BorderPane?>
-<AnchorPane prefHeight="347.0" prefWidth="659.0" style="-fx-background-color: #2D3447;" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="stat.control.SearchLayoutController">
+<AnchorPane prefHeight="347.0" prefWidth="634.0" style="-fx-background-color: #2D3447;" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="stat.control.SearchLayoutController">
    <children>
-      <HBox layoutX="338.0" layoutY="253.0" prefHeight="25.0" prefWidth="250.0" spacing="15.0">
+      <HBox layoutX="321.0" layoutY="253.0" prefHeight="25.0" prefWidth="250.0" spacing="15.0">
          <children>
             <TextField fx:id="textoPesquisa" prefHeight="25.0" prefWidth="147.0" promptText="Pesquisar por CPF..." />
             <Button fx:id="pesquisarBtn" mnemonicParsing="false" onAction="#procurarFuncionario" text="Pesquisar" />
          </children>
       </HBox>
-       <BorderPane fx:id="bp" layoutX="97.0" layoutY="89.0" maxHeight="160.0" maxWidth="120.0" minHeight="160.0" minWidth="120.0" prefHeight="160.0" prefWidth="120.0">
+       <BorderPane fx:id="bp" layoutX="82.0" layoutY="93.0" maxHeight="189.0" maxWidth="154.0" minHeight="160.0" minWidth="120.0" prefHeight="189.0" prefWidth="154.0">
            <center>
                <ImageView fx:id="imagem" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
                    <viewport>
@@ -30,7 +30,7 @@
                </ImageView>
            </center>
        </BorderPane>
-      <VBox alignment="TOP_RIGHT" layoutX="271.0" layoutY="116.0" prefHeight="96.0" prefWidth="168.0" spacing="10.0">
+      <VBox alignment="TOP_RIGHT" layoutX="254.0" layoutY="116.0" prefHeight="96.0" prefWidth="168.0" spacing="10.0">
          <children>
             <Label text="Numero:" textFill="WHITE" />
             <Label text="Tipo:" textFill="WHITE" />
@@ -38,7 +38,7 @@
             <Label text="Controladoria:" textFill="WHITE" />
          </children>
       </VBox>
-      <VBox layoutX="443.0" layoutY="116.0" prefHeight="96.0" prefWidth="175.0" spacing="10.0">
+      <VBox layoutX="426.0" layoutY="116.0" prefHeight="96.0" prefWidth="154.0" spacing="10.0">
          <children>
             <Label fx:id="numero" prefHeight="15.0" prefWidth="174.0" textAlignment="RIGHT" textFill="WHITE" textOverrun="CLIP" />
             <Label fx:id="tipo" textFill="WHITE" />
@@ -46,13 +46,13 @@
             <Label fx:id="controladoria" textFill="WHITE" />
          </children>
       </VBox>
-      <Label layoutX="151.0" layoutY="29.0" text="Processos do Escritório" textFill="WHITE">
+      <Label layoutX="129.0" layoutY="24.0" text="Processos do Escritório" textFill="WHITE">
          <font>
             <Font size="31.0" />
          </font>
       </Label>
-      <Label layoutX="160.0" layoutY="298.0" text="pdf do Processo" textFill="WHITE" />
-      <HBox layoutX="330.0" layoutY="294.0" prefHeight="31.0" prefWidth="266.0" spacing="15.0">
+      <Label alignment="CENTER" layoutX="72.0" layoutY="302.0" prefHeight="16.0" prefWidth="175.0" text="pdf do Processo" textFill="WHITE" />
+      <HBox layoutX="313.0" layoutY="294.0" prefHeight="31.0" prefWidth="266.0" spacing="15.0">
          <children>
             <Button fx:id="adicionarBtn" mnemonicParsing="false" onAction="#adicionarFuncionario" text="Adicionar" />
             <Button fx:id="modificarBtn" mnemonicParsing="false" onAction="#modificarFuncionario" text="Modificar" />
