@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="371.0" prefWidth="600.0" style="-fx-background-color: #2D3447;" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="stat.control.InsertLayoutController">
+   <children>
+      <Label layoutX="165.0" layoutY="27.0" text="Inserir / Modificar" textFill="WHITE">
+         <font>
+            <Font size="31.0" />
+         </font>
+      </Label>
+      <VBox alignment="TOP_RIGHT" layoutX="247.0" layoutY="129.0" prefHeight="112.0" prefWidth="123.0" spacing="16.4">
+         <children>
+            <Label text="Numero:" textFill="WHITE" />
+            <Label text="Tipo:" textFill="WHITE" />
+            <Label text="Data de Redaçao" textFill="WHITE" />
+            <Label text="Controladoria" textFill="WHITE" />
+         </children>
+      </VBox>
+      <ImageView fitHeight="200.0" fitWidth="150.0" layoutX="83.0" layoutY="88.0" pickOnBounds="true">
+         <image>
+         </image>
+         <viewport>
+            <Rectangle2D height="160.0" width="120.0" />
+         </viewport>
+      </ImageView>
+      <VBox layoutX="386.0" layoutY="125.0" prefHeight="112.0" prefWidth="150.0" spacing="6.0">
+         <children>
+            <TextField fx:id="numero" />
+            <TextField fx:id="tipo" />
+            <TextField fx:id="dataRedacao" />
+            <TextField fx:id="controladoria" />
+         </children>
+      </VBox>
+      <Button fx:id="photoBtn" layoutX="107.0" layoutY="309.0" mnemonicParsing="false" onAction="#pickPhoto" text="Escolher foto" />
+      <HBox layoutX="393.0" layoutY="308.0" prefHeight="25.0" prefWidth="138.0" spacing="20.0">
+         <children>
+            <Button fx:id="okBtn" mnemonicParsing="false" onAction="#addProcesso" text="OK" />
+            <Button fx:id="cancelBtn" mnemonicParsing="false" onAction="#cancelInsertion" text="Cancelar" />
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>
