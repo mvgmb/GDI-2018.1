@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
@@ -29,6 +30,8 @@ public class InsertLayoutController {
     @FXML
     ImageView imagem;
     @FXML
+    Label url;
+    @FXML
     Button photoBtn;
     @FXML
     Button okBtn;
@@ -42,12 +45,12 @@ public class InsertLayoutController {
                 new FileChooser.ExtensionFilter("All Files", "*.*"),
                 new FileChooser.ExtensionFilter("Pdf Files (.pdf)", "*.pdf"),
                 new FileChooser.ExtensionFilter("Text Files (.txt)", "*.txt"),
-                new FileChooser.ExtensionFilter("WinRAR Files (.rar)", "*.rar")
+                new FileChooser.ExtensionFilter("WinRAR Files (.rar)", "*.rar"),
+                new FileChooser.ExtensionFilter("JPeg Files (.jpeg)", "*.jpeg")
         );
         fileChooser.setTitle("File Chooser Dialog");
         file = fileChooser.showOpenDialog(((Node) e.getSource()).getScene().getWindow());
-        //TODO adicionar imagem no banco de dados
-        //file.getAbsolutePath(); retorna o url do arquivo
+        url.setText(file.getAbsolutePath());
     }
     @FXML
     private void cancelInsertion(ActionEvent e){
@@ -61,7 +64,8 @@ public class InsertLayoutController {
         if (numero.getText().isEmpty() ||
             tipo.getText().isEmpty() ||
             dataRedacao.getText().isEmpty() ||
-            controladoria.getText().isEmpty()) {
+            controladoria.getText().isEmpty() ||
+            url.getText().equals("Imagem URL")) {
 
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Alerta");
@@ -73,6 +77,9 @@ public class InsertLayoutController {
         Processo p = new Processo(numero.getText(), tipo.getText(), dataRedacao.getText(), controladoria.getText());
 
         //TODO adicionar processo p ao banco e dados
+
+        //TODO adicionar imagem (setada em file) no banco de dados
+        //file.getAbsolutePath(); retorna o url do arquivo
     }
 
     //Cleans every TextField
