@@ -7,13 +7,17 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import stat.MainApp;
 import stat.model.Processo;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 
 public class InsertLayoutController {
     private MainApp mainRef;
@@ -28,6 +32,8 @@ public class InsertLayoutController {
     @FXML
     TextField controladoria;
     @FXML
+    BorderPane bp;
+    @FXML
     ImageView imagem;
     @FXML
     Label url;
@@ -38,19 +44,20 @@ public class InsertLayoutController {
     @FXML
     Button cancelBtn;
     @FXML
-    private void pickPhoto(ActionEvent e){
+    private void pickPhoto(ActionEvent e) throws FileNotFoundException {
         //Declare File Chooser
         fileChooser = new FileChooser();
         fileChooser.getExtensionFilters().addAll(
                 new FileChooser.ExtensionFilter("All Files", "*.*"),
                 new FileChooser.ExtensionFilter("Pdf Files (.pdf)", "*.pdf"),
-                new FileChooser.ExtensionFilter("Text Files (.txt)", "*.txt"),
-                new FileChooser.ExtensionFilter("WinRAR Files (.rar)", "*.rar"),
                 new FileChooser.ExtensionFilter("JPeg Files (.jpeg)", "*.jpeg")
         );
-        fileChooser.setTitle("File Chooser Dialog");
+        fileChooser.setTitle("Choose File");
         file = fileChooser.showOpenDialog(((Node) e.getSource()).getScene().getWindow());
         url.setText(file.getAbsolutePath());
+
+        imagem.setPreserveRatio(true);
+        imagem.setImage(new Image(new FileInputStream(file.getAbsolutePath()), 120, 160, true, false));
     }
     @FXML
     private void cancelInsertion(ActionEvent e){
@@ -91,6 +98,32 @@ public class InsertLayoutController {
         this.tipo.setText(tipo);
         this.dataRedacao.setText(dataRedacao);
         this.controladoria.setText(controladoria);
+        this.url.setText("Imagem URL");
+    }
+
+    public void centerImage() {
+        Image img = imagem.getImage();
+        if (img != null) {
+            double w = 0;
+            double h = 0;
+
+            double ratioX = imagem.getFitWidth() / img.getWidth();
+            double ratioY = imagem.getFitHeight() / img.getHeight();
+
+            double reducCoeff = 0;
+            if(ratioX >= ratioY) {
+                reducCoeff = ratioY;
+            } else {
+                reducCoeff = ratioX;
+            }
+
+            w = img.getWidth() * reducCoeff;
+            h = img.getHeight() * reducCoeff;
+
+            imagem.setX((imagem.getFitWidth() - w) / 2);
+            imagem.setY((imagem.getFitHeight() - h) / 2);
+
+        }
     }
 
     //Set MainApp reference

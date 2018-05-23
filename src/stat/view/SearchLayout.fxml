@@ -10,6 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
+<?import javafx.scene.layout.BorderPane?>
 <AnchorPane prefHeight="347.0" prefWidth="659.0" style="-fx-background-color: #2D3447;" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="stat.control.SearchLayoutController">
    <children>
       <HBox layoutX="338.0" layoutY="253.0" prefHeight="25.0" prefWidth="250.0" spacing="15.0">
@@ -18,13 +19,17 @@
             <Button fx:id="pesquisarBtn" mnemonicParsing="false" onAction="#procurarFuncionario" text="Pesquisar" />
          </children>
       </HBox>
-      <ImageView fitHeight="200.0" fitWidth="150.0" layoutX="97.0" layoutY="89.0" pickOnBounds="true" preserveRatio="true">
-         <viewport>
-            <Rectangle2D height="160.0" width="120.0" />
-         </viewport>
-         <image>
-         </image>
-      </ImageView>
+       <BorderPane fx:id="bp" layoutX="97.0" layoutY="89.0" maxHeight="160.0" maxWidth="120.0" minHeight="160.0" minWidth="120.0" prefHeight="160.0" prefWidth="120.0">
+           <center>
+               <ImageView fx:id="imagem" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+                   <viewport>
+                       <Rectangle2D height="160.0" width="120.0" />
+                   </viewport>
+                   <image>
+                   </image>
+               </ImageView>
+           </center>
+       </BorderPane>
       <VBox alignment="TOP_RIGHT" layoutX="271.0" layoutY="116.0" prefHeight="96.0" prefWidth="168.0" spacing="10.0">
          <children>
             <Label text="Numero:" textFill="WHITE" />
@@ -46,7 +51,7 @@
             <Font size="31.0" />
          </font>
       </Label>
-      <Label layoutX="160.0" layoutY="298.0" text="3x4" textFill="WHITE" />
+      <Label layoutX="160.0" layoutY="298.0" text="pdf do Processo" textFill="WHITE" />
       <HBox layoutX="330.0" layoutY="294.0" prefHeight="31.0" prefWidth="266.0" spacing="15.0">
          <children>
             <Button fx:id="adicionarBtn" mnemonicParsing="false" onAction="#adicionarFuncionario" text="Adicionar" />

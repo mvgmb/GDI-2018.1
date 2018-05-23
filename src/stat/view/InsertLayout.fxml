@@ -6,6 +6,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -25,14 +26,17 @@
             <Label text="Controladoria" textFill="WHITE" />
          </children>
       </VBox>
-      <ImageView fx:id="imagem" fitHeight="160" fitWidth="120" layoutX="98.0" layoutY="105.0" pickOnBounds="true">
-         <image>
-
-         </image>
-         <viewport>
-            <Rectangle2D height="160.0" width="120.0" />
-         </viewport>
-      </ImageView>
+       <BorderPane fx:id="bp" layoutX="98.0" layoutY="105.0" maxHeight="160.0" maxWidth="120.0" minHeight="160.0" minWidth="120.0" prefHeight="160.0" prefWidth="120.0">
+           <center>
+               <ImageView fx:id="imagem" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+                   <viewport>
+                       <Rectangle2D height="160.0" width="120.0" />
+                   </viewport>
+                   <image>
+                   </image>
+               </ImageView>
+           </center>
+       </BorderPane>
       <VBox layoutX="386.0" layoutY="125.0" prefHeight="112.0" prefWidth="150.0" spacing="6.0">
          <children>
             <TextField fx:id="numero" />

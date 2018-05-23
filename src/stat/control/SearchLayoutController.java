@@ -1,6 +1,9 @@
 package stat.control;
 
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.BorderPane;
 import stat.MainApp;
 
 import javafx.event.ActionEvent;
@@ -11,6 +14,8 @@ import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import stat.model.Processo;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class SearchLayoutController {
@@ -26,6 +31,10 @@ public class SearchLayoutController {
     @FXML
     TextField textoPesquisa;
     @FXML
+    BorderPane bp;
+    @FXML
+    ImageView imagem;
+    @FXML
     Button pesquisarBtn;
     @FXML
     Button adicionarBtn;
@@ -38,6 +47,7 @@ public class SearchLayoutController {
         Stage stage = (Stage)((Node)e.getSource()).getScene().getWindow();
         stage.setScene(mainRef.insertScene);
         mainRef.insertLayoutController.cleanText();
+        mainRef.insertLayoutController.imagem.setImage(null);
         stage.show();
     }
     @FXML
@@ -62,14 +72,15 @@ public class SearchLayoutController {
         //textoPesquisa.getText();
 
         //TODO mostrar resultado da pesquisa fazendo a seguinte chamada, onde os atributos são frutos da pesquisa:
-        //SetLabels(new Processo(numero, tipo, dataRedacao, controladoria));
+        //SetLabels(new Processo(numero, tipo, dataRedacao, controladoria, urlDaImagem));
     }
 
-    void SetLabels(Processo p){
+    void SetLabelsAndImage(Processo p, String url) throws FileNotFoundException {
         numero.setText(p.getNumero());
         tipo.setText(p.getTipo());
         dataRedacao.setText(p.getDataRedacao());
         controladoria.setText(p.getControladoria());
+        imagem.setImage(new Image(new FileInputStream(url),120,160,true,false));
     }
 
     public void setMainRef(MainApp mainRef){ this.mainRef = mainRef; }
