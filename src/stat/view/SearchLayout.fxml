@@ -27,10 +27,10 @@
       </ImageView>
       <VBox alignment="TOP_RIGHT" layoutX="271.0" layoutY="116.0" prefHeight="96.0" prefWidth="168.0" spacing="10.0">
          <children>
-            <Label text="Nome:" textFill="WHITE" />
-            <Label text="CPF:" textFill="WHITE" />
-            <Label text="Telefone:" textFill="WHITE" />
-            <Label text="Salário:" textFill="WHITE" />
+            <Label text="Numero:" textFill="WHITE" />
+            <Label text="Tipo:" textFill="WHITE" />
+            <Label text="Data de Redaçao" textFill="WHITE" />
+            <Label text="Controladoria:" textFill="WHITE" />
          </children>
       </VBox>
       <VBox layoutX="443.0" layoutY="116.0" prefHeight="96.0" prefWidth="175.0" spacing="10.0">
@@ -41,7 +41,7 @@
             <Label fx:id="controladoria" textFill="WHITE" />
          </children>
       </VBox>
-      <Label layoutX="143.0" layoutY="31.0" text="Funcionários do Escritório" textFill="WHITE">
+      <Label layoutX="151.0" layoutY="29.0" text="Processos do Escritório" textFill="WHITE">
          <font>
             <Font size="31.0" />
          </font>

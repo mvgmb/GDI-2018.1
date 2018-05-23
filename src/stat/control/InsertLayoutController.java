@@ -6,13 +6,18 @@ import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import stat.MainApp;
 import stat.model.Processo;
 
+import java.io.File;
+
 public class InsertLayoutController {
     private MainApp mainRef;
-
+    private FileChooser fileChooser;
+    private File file;
     @FXML
     TextField numero;
     @FXML
@@ -22,15 +27,27 @@ public class InsertLayoutController {
     @FXML
     TextField controladoria;
     @FXML
+    ImageView imagem;
+    @FXML
     Button photoBtn;
     @FXML
     Button okBtn;
     @FXML
     Button cancelBtn;
     @FXML
-    private void pickPhoto(){
-        //TODO escolher pdf do processo
-        //TODO adicionar imagem com o url acima no banco de dados
+    private void pickPhoto(ActionEvent e){
+        //Declare File Chooser
+        fileChooser = new FileChooser();
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("All Files", "*.*"),
+                new FileChooser.ExtensionFilter("Pdf Files (.pdf)", "*.pdf"),
+                new FileChooser.ExtensionFilter("Text Files (.txt)", "*.txt"),
+                new FileChooser.ExtensionFilter("WinRAR Files (.rar)", "*.rar")
+        );
+        fileChooser.setTitle("File Chooser Dialog");
+        file = fileChooser.showOpenDialog(((Node) e.getSource()).getScene().getWindow());
+        //TODO adicionar imagem no banco de dados
+        //file.getAbsolutePath(); retorna o url do arquivo
     }
     @FXML
     private void cancelInsertion(ActionEvent e){
@@ -60,13 +77,7 @@ public class InsertLayoutController {
 
     //Cleans every TextField
     public void cleanText(){
-        numero.setText("");
-        tipo.setText("");
-        dataRedacao.setText("");
-        controladoria.setText("");
-        photoBtn.setText("");
-        okBtn.setText("");
-        cancelBtn.setText("");
+        setText("","","","");
     }
     public void setText(String numero, String tipo, String dataRedacao, String controladoria){
         this.numero.setText(numero);
