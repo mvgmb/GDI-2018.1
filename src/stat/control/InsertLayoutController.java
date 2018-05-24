@@ -1,5 +1,6 @@
 package stat.control;
 
+import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -16,9 +17,10 @@ import stat.MainApp;
 import stat.model.ModelManager;
 import stat.model.Processo;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
+import java.awt.image.BufferedImage;
+import java.awt.image.RenderedImage;
+import java.io.*;
+import javax.imageio.ImageIO;
 import java.sql.SQLException;
 
 public class InsertLayoutController {
@@ -69,6 +71,7 @@ public class InsertLayoutController {
     }
     @FXML
     private void addProcesso(){
+        byte[] arquivo = new byte[0];
         //Caso todas as informações não tenham sido escritas, alertar ao usuario
         if (numero.getText().isEmpty() ||
             tipo.getText().isEmpty() ||
@@ -83,7 +86,19 @@ public class InsertLayoutController {
             alert.showAndWait();
         }
 
-        Processo p = new Processo(numero.getText(), tipo.getText(), dataRedacao.getText(), controladoria.getText());
+        ByteArrayOutputStream os = new ByteArrayOutputStream();
+        RenderedImage bf = (RenderedImage) SwingFXUtils.fromFXImage(imagem.getImage(), null );
+        try {
+            ImageIO.write(bf, "png", os);
+            arquivo = os.toByteArray();
+        }
+        catch (IOException e) {
+            //TODO - Error Alert
+        }
+
+
+
+        Processo p = new Processo(numero.getText(), tipo.getText(), dataRedacao.getText(), controladoria.getText(), arquivo);
         try {
             ModelManager.manager.insertProcesso(p);
         }

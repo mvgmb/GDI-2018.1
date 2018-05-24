@@ -15,12 +15,15 @@ import javafx.stage.Stage;
 import stat.model.ModelManager;
 import stat.model.Processo;
 
+import java.io.ByteArrayInputStream;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.sql.SQLException;
 
 public class SearchLayoutController {
+    Processo processo = null;
+
     MainApp mainRef;
     @FXML
     Label numero;
@@ -66,15 +69,20 @@ public class SearchLayoutController {
     @FXML
     void removerProcesso(){
         //TODO remover processo com o numero:
-        //numero.getText();
+        try {
+            if (processo != null) ModelManager.manager.deleteProcesso(processo);
+        }
+        catch (SQLException e) {
+            //TODO - Handle error
+        }
+
     }
     @FXML
     void procurarProcesso(){
         //TODO procurar o processo com o numero:
-        //textoPesquisa.getText();
         try {
-            Processo p = ModelManager.manager.fetchProcesso(textoPesquisa.getText());
-            this.SetLabelsAndImage(p, "teste");
+            processo = ModelManager.manager.fetchProcesso(textoPesquisa.getText());
+            this.SetLabelsAndImage(processo, "teste");
 
         }
         catch (SQLException e) {
@@ -94,7 +102,8 @@ public class SearchLayoutController {
         tipo.setText(p.getTipo());
         dataRedacao.setText(p.getDataRedacao());
         controladoria.setText(p.getControladoria());
-        imagem.setImage(new Image(new FileInputStream(url),120,160,true,false));
+//        new Image();
+        imagem.setImage(new Image(new ByteArrayInputStream(p.getArquivo()),120,160,true,false));
     }
 
     public void setMainRef(MainApp mainRef){ this.mainRef = mainRef; }
