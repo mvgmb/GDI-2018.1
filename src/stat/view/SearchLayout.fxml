@@ -16,7 +16,7 @@
       <HBox layoutX="321.0" layoutY="253.0" prefHeight="25.0" prefWidth="250.0" spacing="15.0">
          <children>
             <TextField fx:id="textoPesquisa" prefHeight="25.0" prefWidth="147.0" promptText="Pesquisar por CPF..." />
-            <Button fx:id="pesquisarBtn" mnemonicParsing="false" onAction="#procurarFuncionario" text="Pesquisar" />
+            <Button fx:id="pesquisarBtn" mnemonicParsing="false" onAction="#procurarProcesso" text="Pesquisar" />
          </children>
       </HBox>
        <BorderPane fx:id="bp" layoutX="82.0" layoutY="93.0" maxHeight="189.0" maxWidth="154.0" minHeight="160.0" minWidth="120.0" prefHeight="189.0" prefWidth="154.0">
@@ -54,9 +54,9 @@
       <Label alignment="CENTER" layoutX="72.0" layoutY="302.0" prefHeight="16.0" prefWidth="175.0" text="pdf do Processo" textFill="WHITE" />
       <HBox layoutX="313.0" layoutY="294.0" prefHeight="31.0" prefWidth="266.0" spacing="15.0">
          <children>
-            <Button fx:id="adicionarBtn" mnemonicParsing="false" onAction="#adicionarFuncionario" text="Adicionar" />
-            <Button fx:id="modificarBtn" mnemonicParsing="false" onAction="#modificarFuncionario" text="Modificar" />
-            <Button fx:id="removerBtn" mnemonicParsing="false" onAction="#removerFuncionario" text="Remover" />
+            <Button fx:id="adicionarBtn" mnemonicParsing="false" onAction="#adicionarProcesso" text="Adicionar" />
+            <Button fx:id="modificarBtn" mnemonicParsing="false" onAction="#modificarProcesso" text="Modificar" />
+            <Button fx:id="removerBtn" mnemonicParsing="false" onAction="#removerProcesso" text="Remover" />
          </children>
       </HBox>
    </children>

@@ -43,7 +43,7 @@ public class SearchLayoutController {
     @FXML
     Button removerBtn;
     @FXML
-    void adicionarFuncionario(ActionEvent e) throws IOException {
+    void adicionarProcesso(ActionEvent e) throws IOException {
         Stage stage = (Stage)((Node)e.getSource()).getScene().getWindow();
         stage.setScene(mainRef.insertScene);
         mainRef.insertLayoutController.cleanText();
@@ -51,7 +51,7 @@ public class SearchLayoutController {
         stage.show();
     }
     @FXML
-    void modificarFuncionario(ActionEvent e){
+    void modificarProcesso(ActionEvent e){
         Stage stage = (Stage)((Node)e.getSource()).getScene().getWindow();
         stage.setScene(mainRef.insertScene);
         mainRef.insertLayoutController.cleanText();
@@ -62,12 +62,12 @@ public class SearchLayoutController {
         stage.show();
     }
     @FXML
-    void removerFuncionario(){
+    void removerProcesso(){
         //TODO remover processo com o numero:
         //numero.getText();
     }
     @FXML
-    void procurarFuncionario(){
+    void procurarProcesso(){
         //TODO procurar o processo com o numero:
         //textoPesquisa.getText();
 
