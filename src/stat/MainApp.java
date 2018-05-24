@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import stat.control.InsertLayoutController;
 import stat.control.SearchLayoutController;
+import stat.model.ModelManager;
 
 public class MainApp extends Application{
 
@@ -43,6 +44,9 @@ public class MainApp extends Application{
 
         primaryStage.setScene(searchScene);
         primaryStage.show();
+        ModelManager.manager.accessDB();
+        ModelManager.manager.insertProcesso();
+        ModelManager.manager.fetchProcesso("1");
     }
 
     //Main calls start function
