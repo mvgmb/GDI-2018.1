@@ -1,6 +1,8 @@
 package stat.model;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class ModelManager {
@@ -38,12 +40,13 @@ public class ModelManager {
 //        }
 //    }
 
-    public void fetchProcesso(String numEnt) throws SQLException {
+    public Processo fetchProcesso(String numEnt) throws SQLException {
         //nao sei exatamente como funcionara o resultado da pesquisa, mas eh coisa simples de corrigir (colocando como retorno ou colocando no parametro)
         String numero;
         String tipo;
         String controladoria;
         String data_de_redacao;
+        Processo p = null;
 
         Statement stmt = null;
         String query = "SELECT numero, tipo, controladoria, data_de_redacao FROM Processo WHERE numero = '" + numEnt + "'";
@@ -55,6 +58,7 @@ public class ModelManager {
                 tipo = rs.getString("tipo");
                 controladoria = rs.getString("controladoria");
                 data_de_redacao = rs.getString("data_de_redacao");
+                p = new Processo(numero, tipo, data_de_redacao, controladoria);
                 System.out.println(numero + "  " + controladoria);
             }
         } catch (SQLException e ) {
@@ -63,32 +67,53 @@ public class ModelManager {
         } finally {
             if (stmt != null) { stmt.close(); }
         }
+        return p;
 
     }
 
-    public void insertProcesso() throws SQLException {
-        //nao sei exatamente como funcionara o resultado da pesquisa, mas eh coisa simples de corrigir (colocando como retorno ou colocando no parametro)
+    public List<Processo> fetchAllProcessos() throws SQLException {
         String numero;
         String tipo;
         String controladoria;
         String data_de_redacao;
 
+        List<Processo> processos = new ArrayList<Processo>();
+
         Statement stmt = null;
-        String preQuery = "INSERT INTO Processo (numero, tipo, controladoria, data_de_redacao) VALUES ('%s', '%s', '%s', '%s')";
-        String query = String.format(preQuery, "1", "teste", "principal", "07/09/2008");
+        String query = "SELECT numero, tipo, controladoria, data_de_redacao FROM Processo";
         try {
             stmt = connection.createStatement();
             ResultSet rs = stmt.executeQuery(query);
-//            while(rs.next()){
-//                numero = rs.getString("numero");
-//                tipo = rs.getString("tipo");
-//                controladoria = rs.getString("controladoria");
-//                data_de_redacao = rs.getString("data_de_redacao");
-//                System.out.println(numero + "  " + controladoria);
-//            }
+            while(rs.next()){
+                numero = rs.getString("numero");
+                tipo = rs.getString("tipo");
+                controladoria = rs.getString("controladoria");
+                data_de_redacao = rs.getString("data_de_redacao");
+
+                Processo p = new Processo(numero, tipo, data_de_redacao, controladoria);
+                processos.add(p);
+                System.out.println(numero + "  " + controladoria);
+            }
         } catch (SQLException e ) {
-//            JDBCTutorialUtilities.printSQLException(e);
+            throw e;
+        } finally {
+            if (stmt != null) { stmt.close(); }
+        }
+        return processos;
+
+    }
+
+    public void insertProcesso(Processo p) throws SQLException {
+        Statement stmt = null;
+        String preQuery = "INSERT INTO Processo (numero, tipo, controladoria, data_de_redacao) VALUES ('%s', '%s', '%s', '%s')";
+        String query = String.format(preQuery, p.getNumero(), p.getTipo(), p.getControladoria(), p.getDataRedacao());
+        try {
+            stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery(query);
+//
+        } catch (SQLException e ) {
             System.out.println(e.getMessage());
+            throw e;
         } finally {
             if (stmt != null) { stmt.close(); }
         }

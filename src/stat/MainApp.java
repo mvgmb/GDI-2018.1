@@ -45,8 +45,7 @@ public class MainApp extends Application{
         primaryStage.setScene(searchScene);
         primaryStage.show();
         ModelManager.manager.accessDB();
-        ModelManager.manager.insertProcesso();
-        ModelManager.manager.fetchProcesso("1");
+        ModelManager.manager.fetchAllProcessos();
     }
 
     //Main calls start function

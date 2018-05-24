@@ -13,11 +13,13 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import stat.MainApp;
+import stat.model.ModelManager;
 import stat.model.Processo;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.sql.SQLException;
 
 public class InsertLayoutController {
     private MainApp mainRef;
@@ -82,6 +84,16 @@ public class InsertLayoutController {
         }
 
         Processo p = new Processo(numero.getText(), tipo.getText(), dataRedacao.getText(), controladoria.getText());
+        try {
+            ModelManager.manager.insertProcesso(p);
+        }
+        catch (SQLException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Erro");
+            alert.setHeaderText("Ocorreu um erro na consulta");
+            alert.setContentText("Favor checar todos os campos");
+            alert.showAndWait();
+        }
 
         //TODO adicionar processo p ao banco e dados
 
