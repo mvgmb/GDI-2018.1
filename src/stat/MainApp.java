@@ -44,6 +44,7 @@ public class MainApp extends Application{
 
         primaryStage.setScene(searchScene);
         primaryStage.show();
+
         ModelManager.manager.accessDB();
         ModelManager.manager.fetchAllProcessos();
     }

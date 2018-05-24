@@ -1,15 +1,21 @@
 package control;
 
+import javafx.application.Application;
+import javafx.stage.Stage;
+import stat.model.AlertError;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-public class ConnectionManager {
-	
+public class ConnectionManager extends Application{
+	// propriedade de mairo, to usando p testar alertas
 	public static void main(String[] args) {
-		ConnectionManager ConnectionManager = new ConnectionManager();
+		launch(args);
+
+		/*ConnectionManager ConnectionManager = new ConnectionManager();
 		
 		Connection connection = ConnectionManager.connectDB();
 		try {
@@ -18,6 +24,7 @@ public class ConnectionManager {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		*/
 	}
 	
 	public Connection connectDB() {
@@ -58,5 +65,11 @@ public class ConnectionManager {
         }
 		
         //<------------ ATÉ AQUI ------------> 
+	}
+
+	@Override
+	public void start(Stage primaryStage) throws Exception {
+		new AlertError("Erro","Ocorreu um erro na consulta","Favor checar se os campos foram inseridos.");
+
 	}
 }
