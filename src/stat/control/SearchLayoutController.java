@@ -1,5 +1,6 @@
 package stat.control;
 
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -12,6 +13,7 @@ import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
+import stat.model.AlertError;
 import stat.model.ModelManager;
 import stat.model.Processo;
 
@@ -80,21 +82,18 @@ public class SearchLayoutController {
     @FXML
     void procurarProcesso(){
         //TODO procurar o processo com o numero:
+
         try {
             processo = ModelManager.manager.fetchProcesso(textoPesquisa.getText());
             this.SetLabelsAndImage(processo, "teste");
 
         }
         catch (SQLException e) {
-            //TODO mostrar alert de erro
+            new AlertError("Erro","Ocorreu um erro na consulta","Favor checar todos os campos.");
         }
         catch (FileNotFoundException e) {
-            //TODO mostrar alert de erro
+            new AlertError("Erro","Ocorreu um erro na consulta","Favor checar se os campos foram inseridos.");
         }
-
-
-        //TODO mostrar resultado da pesquisa fazendo a seguinte chamada, onde os atributos são frutos da pesquisa:
-        //SetLabels(new Processo(numero, tipo, dataRedacao, controladoria, urlDaImagem));
     }
 
     void SetLabelsAndImage(Processo p, String url) throws FileNotFoundException {
