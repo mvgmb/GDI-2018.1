@@ -12,11 +12,13 @@ import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
+import stat.model.ModelManager;
 import stat.model.Processo;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.sql.SQLException;
 
 public class SearchLayoutController {
     MainApp mainRef;
@@ -70,6 +72,18 @@ public class SearchLayoutController {
     void procurarProcesso(){
         //TODO procurar o processo com o numero:
         //textoPesquisa.getText();
+        try {
+            Processo p = ModelManager.manager.fetchProcesso(textoPesquisa.getText());
+            this.SetLabelsAndImage(p, "teste");
+
+        }
+        catch (SQLException e) {
+            //TODO mostrar alert de erro
+        }
+        catch (FileNotFoundException e) {
+            //TODO mostrar alert de erro
+        }
+
 
         //TODO mostrar resultado da pesquisa fazendo a seguinte chamada, onde os atributos são frutos da pesquisa:
         //SetLabels(new Processo(numero, tipo, dataRedacao, controladoria, urlDaImagem));
